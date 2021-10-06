@@ -1,1 +1,1 @@
-# enonic--raining
+# enonic--training

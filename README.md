@@ -1,1 +1,1 @@
-# enonic--training
+# enonic-training

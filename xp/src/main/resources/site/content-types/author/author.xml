@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Author</display-name>
+  <display-name-expression>${name}</display-name-expression>
+  <super-type>base:structured</super-type>
+  <form>
+    <field-set>
+      <label>Author</label>
+      <items>
+        <input type="TextLine" name="name">
+          <label>Name</label>
+          <occurrences minimum="1" maximum="1" />
+        </input>
+        <input type="TextArea" name="description">
+          <label>Description</label>
+          <occurrences minimum="1" maximum="1" />
+        </input>
+        <input type="ImageSelector" name="image">
+          <label>Image</label>
+          <occurrences minimum="0" maximum="1" />
+          <config></config>
+        </input>
+        <input type="TextLine" name="email">
+          <label>E-mail</label>
+          <occurrences minimum="1" maximum="1" />
+          <config>
+            <regexp>[a-z-A-Z]{3,}@[a-z-A-Z]{3,}\.[a-z-A-Z]{2,4}</regexp>
+          </config>
+        </input>
+        <input name="Roles" type="ComboBox">
+          <label>Roles</label>
+          <occurrences minimum="1" maximum="1" />
+          <config>
+            <option value="admin">Admin</option>
+            <option value="writer">Writer</option>
+            <option value="reader">Reader</option>
+          </config>
+          <default>Reader</default>
+        </input>
+      </items>
+    </field-set>
+  </form>
+</content-type>

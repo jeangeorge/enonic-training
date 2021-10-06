@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type>
+  <display-name>Post</display-name>
+  <content-display-name-script>$('title')</content-display-name-script>
+  <super-type>base:structured</super-type>
+  <form>
+    <field-set>
+      <label>Post</label>
+      <items>
+        <input type="TextLine" name="title">
+          <label>Title</label>
+          <occurrences minimum="1" maximum="1" />
+        </input>
+        <input type="TextLine" name="shortTitle">
+          <label>Short Title</label>
+          <occurrences minimum="0" maximum="1" />
+          <config>
+            <max-length>5</max-length>
+          </config>
+        </input>
+        <input type="HtmlArea" name="html">
+          <label>HTML</label>
+          <occurrences minimum="1" maximum="1" />
+        </input>
+        <input type="ImageSelector" name="image">
+          <label>Image</label>
+          <occurrences minimum="0" maximum="1" />
+          <config></config>
+        </input>
+        <input name="category" type="ContentSelector">
+          <label>Category</label>
+          <occurrences minimum="1" maximum="0" />
+          <config>
+            <allowContentType>category</allowContentType>
+          </config>
+        </input>
+        <input name="author" type="ContentSelector">
+          <label>Author</label>
+          <occurrences minimum="1" maximum="1" />
+          <config>
+            <allowContentType>author</allowContentType>
+          </config>
+        </input>
+      </items>
+    </field-set>
+  </form>
+</content-type>

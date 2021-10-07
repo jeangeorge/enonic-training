@@ -1,0 +1,18 @@
+<div class="author-details">
+	<ul th:if="${show}">
+		<li><img
+			th:src="${author.image.src}"
+			th:alt="${author.name}"
+			th:style="${'max-width:' + author.image.maxWidth + '; max-height:' + author.image.maxHeight}"></li>
+		<li>Name: <span>[[ ${author.name} ]]</span></li>
+		<li>Description: <span>[[ ${author.description} ]]</span></li>
+		<li>E-mail: <span>[[ ${author.email} ]]</span></li>
+		<li>
+			<ul>
+				<li th:each="role : ${author.roles}">
+					[[ ${role} ]]
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

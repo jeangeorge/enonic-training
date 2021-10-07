@@ -1,35 +1,16 @@
-.article-image {
-    max-width: 100%;
+body {
+  background-color: lightgray;
 }
 
-.article-list {
-    padding-left: 0;
-    list-style: none;
+.author-details {
+  border: 1px solid gray;
+  padding: 25px;
 }
 
-.article-list-latest {
-    list-style: disc;
+.author-details ul {
+  list-style: none;
 }
 
-.article-list-item {
-    clear: both;
-    overflow: hidden;
-}
-
-.article-list-image {
-    float: right;
-    max-width: 100%;
-    margin: 0 0 20px 20px;
-}
-
-.grid-example [class*="col-"] {
-    background-color: #eee;
-    background-color: rgba(86,61,124,.15);
-    border: 1px solid #ddd;
-    border: 1px solid rgba(86,61,124,.2);
-}
-
-/*  Carousel image */
-.carousel-inner>.item>a>img, .carousel-inner>.item>img {
-    width: 100%;
+.author-details ul li {
+  margin-bottom: 10px;
 }

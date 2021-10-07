@@ -6,22 +6,9 @@ var libs = {
 };
 
 // Handle GET request
-exports.get = handleGet;
-
-function handleGet(req) {
+exports.get = function (req) {
   var site = libs.portal.getSite(); // Current site
   var content = libs.portal.getContent(); // Current content
-  var view = resolve("default.html"); // The view to render
-
-  var model = {
-    mainRegion: content.page.regions["main"],
-    sitePath: site["_path"],
-    currentPath: content._path,
-    pageTitle: getPageTitle(),
-    metaDescription: getMetaDescription(),
-    menuItems: libs.menu.getMenuTree(3).menuItems,
-    siteName: site.displayName,
-  };
 
   function getPageTitle() {
     return content["displayName"] + " - " + site["displayName"];
@@ -42,9 +29,15 @@ function handleGet(req) {
     return extraData;
   }
 
+  var model = {
+    mainRegion: content.page.regions["main"],
+    pageTitle: getPageTitle(),
+    metaDescription: getMetaDescription(),
+  };
+
   log.info(JSON.stringify(model.menuItems, null, 4));
 
   return {
-    body: libs.thymeleaf.render(view, model),
+    body: libs.thymeleaf.render(resolve("default.html"), model),
   };
-}
+};

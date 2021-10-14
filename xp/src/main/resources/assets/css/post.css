@@ -1,0 +1,40 @@
+.post-details {
+  width: 100%;
+}
+
+.title {
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+.categories {
+  font-weight: bold;
+  display: flex;
+  justify-content: right;
+  font-weight: bold;
+}
+
+.content {
+  width: fit-content;
+  height: fit-content;
+  margin-top: 30px;
+}
+
+.author {
+  font-weight: bold;
+  display: flex;
+  justify-content: right;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

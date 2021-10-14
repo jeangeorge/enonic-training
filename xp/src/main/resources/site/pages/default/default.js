@@ -7,35 +7,37 @@ var libs = {
 
 // Handle GET request
 exports.get = function (req) {
-  var site = libs.portal.getSite(); // Current site
-  var content = libs.portal.getContent(); // Current content
+  const site = libs.portal.getSite(); // Current site
+  const content = libs.portal.getContent(); // Current content
 
-  function getPageTitle() {
-    return content["displayName"] + " - " + site["displayName"];
-  }
+  const basePath = "/bootstrap-starter";
 
-  function getMetaDescription() {
-    var htmlMeta = getExtradata(content, "html-meta");
-    var metaDescription = htmlMeta.htmlMetaDescription || "";
-    return metaDescription;
-  }
-
-  function getExtradata(content, property) {
-    var appNamePropertyName = app.name.replace(/\./g, "-");
-    // Short way of getting nested objects
-    // http://blog.osteele.com/posts/2007/12/cheap-monads/
-    var extraData =
-      ((content.x || {})[appNamePropertyName] || {})[property] || {};
-    return extraData;
-  }
-
-  var model = {
-    mainRegion: content.page.regions["main"],
-    pageTitle: getPageTitle(),
-    metaDescription: getMetaDescription(),
+  const pagesUrls = {
+    posts: libs.portal.pageUrl({ path: basePath + "/posts" }),
+    authors: libs.portal.pageUrl({ path: basePath + "/authors" }),
+    categories: libs.portal.pageUrl({ path: basePath + "/categories" }),
   };
 
-  log.info(JSON.stringify(model.menuItems, null, 4));
+  const getPageTitle = () =>
+    content["displayName"] + " - " + site["displayName"];
+
+  const getMetaDescription = () =>
+    getExtraData(content, "html-meta").htmlMetaDescription || "";
+
+  const getExtraData = (content, property) => {
+    const appNamePropertyName = app.name.replace(/\./g, "-");
+    const extraData =
+      ((content.x || {})[appNamePropertyName] || {})[property] || {};
+    return extraData;
+  };
+
+  const model = {
+    mainRegion: content.page.regions["main"],
+    pageTitle: getPageTitle(),
+    pagePath: content._path.split("starter/")[1].split("/")[0],
+    metaDescription: getMetaDescription(),
+    pagesUrls,
+  };
 
   return {
     body: libs.thymeleaf.render(resolve("default.html"), model),

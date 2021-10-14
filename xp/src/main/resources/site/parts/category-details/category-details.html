@@ -1,0 +1,10 @@
+<div class="details">
+	<ul th:if="${show}">
+		<li><img
+			th:src="${category.image.src}"
+			th:alt="${category.name}"
+			th:style="${'max-width:' + category.image.maxWidth + '; max-height:' + category.image.maxHeight}"></li>
+		<li>Title: <span>[[ ${category.title} ]]</span></li>
+		<li>Description: <span>[[ ${category.description} ]]</span></li>
+	</ul>
+</div>

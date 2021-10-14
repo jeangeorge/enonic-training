@@ -27,14 +27,14 @@
           <occurrences minimum="0" maximum="1" />
           <config></config>
         </input>
-        <input name="category" type="ContentSelector">
-          <label>Category</label>
+        <input type="ContentSelector" name="categories">
+          <label>Categories</label>
           <occurrences minimum="1" maximum="0" />
           <config>
             <allowContentType>category</allowContentType>
           </config>
         </input>
-        <input name="author" type="ContentSelector">
+        <input type="ContentSelector" name="author">
           <label>Author</label>
           <occurrences minimum="1" maximum="1" />
           <config>

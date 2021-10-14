@@ -1,0 +1,52 @@
+<div class="default-list">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="row"></th>
+        <th scope="row">Title</th>
+        <th scope="row">Short title</th>
+        <th scope="row">Author</th>
+        <th scope="row"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="post : ${posts}">
+        <td>
+          <a data-th-href="${post.href}">
+            <span class="material-icons"> north_west </span>
+          </a>
+        </td>
+        <td>[[ ${post.data.title} ]]</td>
+        <td>[[ ${post.data['short-title']} ]]</td>
+        <td>[[ ${post.author.name} ]]</td>
+        <td style="text-align: right">
+          <button th:href="${config.pageUpdate}">
+            <span class="material-icons"> edit </span>
+          </button>
+          <form
+            method="post"
+            th:action="${deleteFunction}"
+            style="display: inline !important"
+          >
+            <input type="hidden" name="id" th:value="${post._id}" />
+            <button type="submit">
+              <span class="material-icons"> delete </span>
+            </button>
+          </form>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td style="text-align: right">
+          <a th:href="${createPost}">
+            <button class="btn btn-primary">Create new post</button>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
